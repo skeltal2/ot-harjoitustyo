@@ -1,0 +1,3 @@
+.
+├── komentorivi.txt
+└── viikko1
