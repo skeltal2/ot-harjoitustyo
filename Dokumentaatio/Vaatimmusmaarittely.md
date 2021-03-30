@@ -1,19 +1,19 @@
-### Vaatimusmäärittely ###
-## Sovelluksen tarkoitus ##
-Sovellus on miinaharava-peli. Pelissä on pelikenttä, joka koostuu samannäköisistä neliöistä. Pelaaja voi "kaivaa" neliöitä paljasten sen sisällön. Jokainen neliö on joko tyhjä, miina tai numero. Numero kertoo kuinka monta miinaa neliön vieressä on. Jos neliö on tyhjä, se paljastaa kaikki viereiset neliöt jotka ovat myös tyhjiä. Jos pelaaja "kaivaa" miinan, peli on hävitty.
-Pelaaja voi myös kaivamisen sijasta asettaa lipun neliölle. Jos kaikilla neliöillä, jotka sisältävät miinan on lippu, pelaaja voittaa pelin.
-## Perusversion toiminnallisuus ##
-* Sovellus aukeaa päävalikkoon, jossa on pelaaja voi aloittaa uuden pelin, muuttaa pelin asetuksia, tai poistua pelistä
+## VaatimusmÃ¤Ã¤rittely ##
+### Sovelluksen tarkoitus ###
+Sovellus on miinaharava-peli. PelissÃ¤ on pelikenttÃ¤, joka koostuu samannÃ¤kÃ¶isistÃ¤ neliÃ¶istÃ¤. Pelaaja voi "kaivaa" neliÃ¶itÃ¤ paljasten sen sisÃ¤llÃ¶n. Jokainen neliÃ¶ on joko tyhjÃ¤, miina tai numero. Numero kertoo kuinka monta miinaa neliÃ¶n vieressÃ¤ on. Jos neliÃ¶ on tyhjÃ¤, se paljastaa kaikki viereiset neliÃ¶t jotka ovat myÃ¶s tyhjiÃ¤. Jos pelaaja "kaivaa" miinan, peli on hÃ¤vitty.
+Pelaaja voi myÃ¶s kaivamisen sijasta asettaa lipun neliÃ¶lle. Jos kaikilla neliÃ¶illÃ¤, jotka sisÃ¤ltÃ¤vÃ¤t miinan on lippu, pelaaja voittaa pelin.
+### Perusversion toiminnallisuus ###
+* Sovellus aukeaa pÃ¤Ã¤valikkoon, jossa on pelaaja voi aloittaa uuden pelin, muuttaa pelin asetuksia, tai poistua pelistÃ¤
 * Uusi peli-vaihtoehto aloittaa uuden pelin
-  * Pelaaja siirtyy toiseen näkymään, jossa on pelilauta
-  * Pelilauta on x \* y kokoinen ruudukko, joka koostuu tyhjistä neliöistä
-  * Pelilaudan päällä on ajastin ja luku, joka kertoo kuinka monta miinaa kentällä on
-  * Kun peli on loppu, pelaaja näkee kuinka paljon aikaa kului ja siirtyy takaisin päävalikkoon
-* Asetukset-vaihtoehto siirtää pelaajan näkymään, jossa pelaaja voi muuttaa pelin asetuksia
-  * Pelaaja voi muuttaa pelikentän kokoa muuttamalla x ja y arvoja
-  * Pelaaja voi muuttaa kuinka monta miinaa kentällä on
-* Poistu pelistä-vaihtoehto sulkee sovelluksen
-* Pelikenttä luodaan kun pelaaja paljastaa ensimmäisen neliön. Miinat sijoitetaan satunnaisesti kentälle ja jokainen neliö, joka on miinan vieressä muutetaan numeroksi. Ensimmäinen neliö, jonka pelaaja paljastaa on aina tyhjä neliö.
-## Jatkokehitysideoita ##
-* Pelin päättyessä pelaaja voi antaa nimensä jonka jälkeen pelin aika tallennetaan.
-* Päävalikossa on uusi vaihtoehto, jossa pelaaja voi katsoa eri kenttäkokojen parhaat ajat.
+  * Pelaaja siirtyy toiseen nÃ¤kymÃ¤Ã¤n, jossa on pelilauta
+  * Pelilauta on x \* y kokoinen ruudukko, joka koostuu tyhjistÃ¤ neliÃ¶istÃ¤
+  * Pelilaudan pÃ¤Ã¤llÃ¤ on ajastin ja luku, joka kertoo kuinka monta miinaa kentÃ¤llÃ¤ on
+  * Kun peli on loppu, pelaaja nÃ¤kee kuinka paljon aikaa kului ja siirtyy takaisin pÃ¤Ã¤valikkoon
+* Asetukset-vaihtoehto siirtÃ¤Ã¤ pelaajan nÃ¤kymÃ¤Ã¤n, jossa pelaaja voi muuttaa pelin asetuksia
+  * Pelaaja voi muuttaa pelikentÃ¤n kokoa muuttamalla x ja y arvoja
+  * Pelaaja voi muuttaa kuinka monta miinaa kentÃ¤llÃ¤ on
+* Poistu pelistÃ¤-vaihtoehto sulkee sovelluksen
+* PelikenttÃ¤ luodaan kun pelaaja paljastaa ensimmÃ¤isen neliÃ¶n. Miinat sijoitetaan satunnaisesti kentÃ¤lle ja jokainen neliÃ¶, joka on miinan vieressÃ¤ muutetaan numeroksi. EnsimmÃ¤inen neliÃ¶, jonka pelaaja paljastaa on aina tyhjÃ¤ neliÃ¶.
+### Jatkokehitysideoita ###
+* Pelin pÃ¤Ã¤ttyessÃ¤ pelaaja voi antaa nimensÃ¤ jonka jÃ¤lkeen pelin aika tallennetaan.
+* PÃ¤Ã¤valikossa on uusi vaihtoehto, jossa pelaaja voi katsoa eri kenttÃ¤kokojen parhaat ajat.
