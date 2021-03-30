@@ -1,8 +1,8 @@
 # Miinaharava #
-*Lorem ipsum dolor sit amet*, **consectetur adipiscing elit.**
+Sovellus on klassinen miinaharava-peli. Pelaajan tavoitteena on etsiä kaikki miinat pelikentältä.
 
 ## Dokumentaatio ##
-[vaatimusmäärittely](https://github.com/skeltal2/ot-harjoitustyo/blob/master/Dokumentaatio/vaatimmusmaarittely.md)
+[Vaatimusmäärittely](https://github.com/skeltal2/ot-harjoitustyo/blob/master/Dokumentaatio/vaatimmusmaarittely.md)
 
 ## Viikko 1 ##
 
