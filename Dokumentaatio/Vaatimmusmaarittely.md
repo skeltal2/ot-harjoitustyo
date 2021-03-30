@@ -1,6 +1,7 @@
 ## Vaatimusmäärittely ##
 ### Sovelluksen tarkoitus ###
-Sovellus on miinaharava-peli. Pelissä on pelikenttä, joka koostuu samannäköisistä neliöistä. Pelaaja voi "kaivaa" neliöitä paljasten sen sisällön. Jokainen neliö on joko tyhjä, miina tai numero. Numero kertoo kuinka monta miinaa neliön vieressä on. Jos neliö on tyhjä, se paljastaa kaikki viereiset neliöt jotka ovat myös tyhjiä. Jos pelaaja "kaivaa" miinan, peli on hävitty.
+Sovellus on miinaharava-peli. Pelissä on pelikenttä, joka koostuu samannäköisistä neliöistä. Pelaaja voi "kaivaa" neliöitä paljasten sen sisällön. Jokainen neliö on joko tyhjä, miina tai numero. Numero kertoo kuinka monta miinaa neliön vieressä on. Jos neliö on tyhjä, se paljastaa kaikki viereiset neliöt, jotka ovat myös tyhjiä. Jos pelaaja "kaivaa" miinan, peli on hävitty.
+
 Pelaaja voi myös kaivamisen sijasta asettaa lipun neliölle. Jos kaikilla neliöillä, jotka sisältävät miinan on lippu, pelaaja voittaa pelin.
 ### Perusversion toiminnallisuus ###
 * Sovellus aukeaa päävalikkoon, jossa on pelaaja voi aloittaa uuden pelin, muuttaa pelin asetuksia, tai poistua pelistä
