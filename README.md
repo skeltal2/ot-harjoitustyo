@@ -1,5 +1,8 @@
-# Lorem ipsum #
+# Miinaharava #
 *Lorem ipsum dolor sit amet*, **consectetur adipiscing elit.**
+
+## Dokumentaatio ##
+[vaatimusmäärittely](https://github.com/skeltal2/ot-harjoitustyo/blob/master/Dokumentaatio/vaatimmusmaarittely.md)
 
 ## Viikko 1 ##
 
