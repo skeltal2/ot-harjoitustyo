@@ -22,4 +22,4 @@ Pelaaja voi myös kaivamisen sijasta asettaa lipun kaivamattomalle neliölle. Jo
 * Pelin päättyessä pelaaja voi antaa nimensä jonka jälkeen pelin aika tallennetaan
 * Päävalikossa on uusi vaihtoehto, jossa pelaaja voi katsoa eri vaikeustasojen parhaat ajat
 * Pelaaja voi luoda oman vaikeustason asetuksissa
-  * Pelaaja voi valita kentän x ja y koon ja miinojen määrän
+  * Pelaaja voi valita kentän x ja y kokoa ja miinojen määrää
