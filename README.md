@@ -5,17 +5,17 @@ Sovellus on klassinen miinaharava-peli. Pelaajan tavoitteena on etsiä kaikki mi
 [Vaatimusmäärittely](https://github.com/skeltal2/ot-harjoitustyo/blob/master/Dokumentaatio/vaatimmusmaarittely.md)
 
 ## Komentorivi ##
-# Ohjeman suorittaminen #
+### Ohjeman suorittaminen ###
 ```bash
 poetry run invoke start
 ```
 
-# Testaus #
+### Testaus ###
 ```bash
 poetry run invoke test
 ```
 
-# Testikattavuus #
+### Testikattavuus ###
 ```bash
 poetry run invoke coverage-report
 ```
