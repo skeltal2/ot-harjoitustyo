@@ -53,3 +53,6 @@ class FieldGenerator:
                 matrix[y][x] = n
         
         return matrix
+
+    def __str__(self):
+        return f"x:{self.x}, y:{self.y}, mines:{self.mines}"

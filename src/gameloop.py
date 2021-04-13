@@ -1,5 +1,4 @@
 import pygame
-from fieldgenerator import FieldGenerator
 
 class Gameloop:
     def __init__(self, display, field, field_map):
