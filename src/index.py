@@ -4,7 +4,7 @@ from field import Field
 from fieldgenerator import FieldGenerator
 from gameloop import Gameloop
 
-field_map = FieldGenerator(30, 16, 60).generate()
+field_map = FieldGenerator(30, 16, 99, (-10, -10)).generate()
 
 tile_size = 36
 

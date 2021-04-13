@@ -1,4 +1,5 @@
 import pygame
+from fieldgenerator import FieldGenerator
 
 class Gameloop:
     def __init__(self, display, field, field_map):
@@ -19,9 +20,8 @@ class Gameloop:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return False
-            elif event.type == pygame.MOUSEBUTTONDOWN:
+            elif event.type == pygame.MOUSEBUTTONUP:
                 pos = pygame.mouse.get_pos()
-
                 self.open_tile(pos)
 
     def _render(self):
@@ -32,7 +32,6 @@ class Gameloop:
         for tile in self._field.tiles:
             if tile.rect.collidepoint(position):
                 if tile.status == 0:
-
                     cords = []
                     for i in [(-36, 36), (0, 36), (36, 36), (-36, 0), (0, 0), (36, 0), (-36, -36), (0, -36), (36, -36)]:
                         cords.append((tile.rect.x + i[0], tile.rect.y + i[1]))

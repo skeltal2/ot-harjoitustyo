@@ -42,6 +42,6 @@ class Tile(pygame.sprite.Sprite):
 
         self.image = pygame.image.load(os.path.join(dirname, "assets", self.style))
 
-    def flag(self):
-        self.style = "flag.png"
-        self.image = pygame.image.load(os.path.join(dirname, "assets", self.style))
+    # def flag(self):
+    #     self.style = "flag.png"
+    #     self.image = pygame.image.load(os.path.join(dirname, "assets", self.style))
