@@ -18,4 +18,4 @@ class Field:
                 norm_x = x * self.tile_size
                 norm_y = y * self.tile_size
 
-                self.tiles.add(Tile(n, False, norm_x, norm_y))
+                self.tiles.add(Tile(n, norm_x, norm_y))

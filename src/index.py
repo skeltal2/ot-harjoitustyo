@@ -2,8 +2,9 @@ import pygame
 import os
 from field import Field
 from fieldgenerator import FieldGenerator
+from gameloop import Gameloop
 
-field_map = FieldGenerator(30, 16, 99).generate()
+field_map = FieldGenerator(30, 16, 60).generate()
 
 tile_size = 36
 
@@ -21,13 +22,7 @@ def main():
 
     pygame.init()
 
-    field.tiles.draw(display)
-    pygame.display.flip()
-
-    while True:
-        for i in pygame.event.get():
-            if i.type == pygame.QUIT:
-                exit()
+    Gameloop(display, field, field_map).start()
 
 if __name__ == "__main__":
     main()
