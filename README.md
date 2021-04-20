@@ -27,7 +27,7 @@ poetry run invoke coverage
 poetry run invoke coverage-report
 ```
 
-### Pylint testion suorittaminen ###
+### Pylint testien suorittaminen ###
 ```bash
 poetry run invoke lint
 ```
