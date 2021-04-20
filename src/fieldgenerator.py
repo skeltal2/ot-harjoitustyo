@@ -66,6 +66,3 @@ class FieldGenerator:
                         tile_value += 1
                 matrix[field_y][field_x] = tile_value
         return matrix
-
-    def __str__(self):
-        return f"x:{self.field_x}, y:{self.field_y}, mines:{self.mines}"

@@ -43,6 +43,9 @@ class Tile(pygame.sprite.Sprite):
             self.style = "8.png"
         elif self.value == 9:
             self.style = "flag.png"
+        else:
+            self.value = 0
+            self.style = "tile.png"
 
         self.set_image(self.style)
 
