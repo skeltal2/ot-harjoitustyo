@@ -11,10 +11,12 @@ class FieldGenerator:
     def generate(self):
         horizontal = []
         matrix = []
-        free_cords = set()
+        free_cords = set() # List of cordinated where mines can be placed
 
+        # Relative cordinates of all 8 surrounding tiles of a tile
         checks = [(-1, 1), (0, 1), (1, 1), (-1, 0), (0, 0), (1, 0), (-1, -1), (0, -1), (1, -1)]
 
+        # Find 8 tiles which surround first tile clicked
         mine_checks = []
         for check in checks:
             x_check = floor(self.first_click[0] / 36) + check[0]
@@ -25,29 +27,33 @@ class FieldGenerator:
 
             mine_checks.append((x_check, y_check))
 
+        # Create x * y matrix
         for i in range(self.field_x):
             horizontal.append(0)
         for i in range(self.field_y):
             matrix.append(horizontal.copy())
 
+        # Add possible mine cordinates to free_cords
         for fc_y in range(self.field_y):
             for fc_x in range(self.field_x):
                 if (fc_x, fc_y) not in mine_checks:
                     free_cords.add((fc_x, fc_y))
 
+        # Pick a random cordinate from free_cords, add mine (-1) to matrix, then remove cordinate from free cords
         for i in range(self.mines):
             mine_cord = sample(free_cords, 1)[0]
 
             matrix[mine_cord[1]][mine_cord[0]] = -1
             free_cords.remove((mine_cord[0], mine_cord[1]))
-
+        
+        # Go through every tile and find count of surrounding mines
         for field_y in range(self.field_y):
             for field_x in range(self.field_x):
                 if matrix[field_y][field_x] == -1:
                     continue
                 tile_value = 0
 
-                for i in checks:
+                for i in checks: # Make sure checks don't wrap around the field
                     y_check = field_y + i[1]
                     if y_check < 0 or y_check > self.field_y - 1:
                         continue

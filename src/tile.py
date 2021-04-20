@@ -19,6 +19,7 @@ class Tile(pygame.sprite.Sprite):
     def set_image(self, style):
         self.image = pygame.image.load(os.path.join(dirname, "assets", style))
 
+    # When tile is clicked assing correct sprite
     def click(self):
         if self.value == 0:
             self.style = "tile.png"

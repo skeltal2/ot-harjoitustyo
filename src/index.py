@@ -3,6 +3,7 @@ from gameloop import Gameloop
 
 x = 10
 y = 10
+# max mines = x * y - 9
 mines = 10
 tile_size = 36
 
