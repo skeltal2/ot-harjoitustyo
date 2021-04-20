@@ -17,7 +17,7 @@ poetry run invoke start
 poetry run invoke test
 ```
 
-## Testies suorittaminen ###
+### Testien suorittaminen ###
 ```bash
 poetry run invoke coverage
 ```
