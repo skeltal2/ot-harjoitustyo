@@ -23,7 +23,7 @@ Pelaaja voi myös kaivamisen sijasta asettaa lipun kaivamattomalle neliölle. Jo
 * 🔴 Poistu pelistä-vaihtoehto sulkee sovelluksen
 * 🟢 Pelikenttä luodaan kun pelaaja paljastaa ensimmäisen neliön. Miinat sijoitetaan satunnaisesti kentälle ja jokainen neliö, joka on miinan vieressä muutetaan numeroksi. Ensimmäinen neliö, jonka pelaaja paljastaa on aina tyhjä neliö.
 ### Jatkokehitysideoita ###
-* Pelin päättyessä pelaaja voi antaa nimensä jonka jälkeen pelin aika tallennetaan
-* Päävalikossa on uusi vaihtoehto, jossa pelaaja voi katsoa eri vaikeustasojen parhaat ajat
-* Pelaaja voi luoda oman vaikeustason asetuksissa
+* 🔴 Pelin päättyessä pelaaja voi antaa nimensä jonka jälkeen pelin aika tallennetaan
+* 🔴 Päävalikossa on uusi vaihtoehto, jossa pelaaja voi katsoa eri vaikeustasojen parhaat ajat
+* 🟡 Pelaaja voi luoda oman vaikeustason asetuksissa
   * 🟡 Pelaaja voi valita kentän x ja y kokoa ja miinojen määrää
