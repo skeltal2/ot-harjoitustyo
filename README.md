@@ -18,9 +18,9 @@ poetry run invoke test
 ```
 
 ## Testies suorittaminen ###
-´´´bash
+```bash
 poetry run invoke coverage
-´´´
+```
 
 ### Testikattavuus ###
 ```bash
