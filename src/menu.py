@@ -1,5 +1,6 @@
-from tkinter import Tk, ttk, StringVar
+from tkinter import Tk, ttk
 
+# WIP
 class UI:
     def __init__(self, root):
         self._root = root
