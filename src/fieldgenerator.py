@@ -11,7 +11,7 @@ class FieldGenerator:
     def generate(self):
         horizontal = []
         matrix = []
-        free_cords = set() # List of cordinated where mines can be placed
+        free_cords = set() # List of cordinates where mines can be placed
 
         # Relative cordinates of all 8 surrounding tiles of a tile
         checks = [(-1, 1), (0, 1), (1, 1), (-1, 0), (0, 0), (1, 0), (-1, -1), (0, -1), (1, -1)]
