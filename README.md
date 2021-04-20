@@ -17,7 +17,17 @@ poetry run invoke start
 poetry run invoke test
 ```
 
+## Testies suorittaminen ###
+´´´bash
+poetry run invoke coverage
+´´´
+
 ### Testikattavuus ###
 ```bash
 poetry run invoke coverage-report
+```
+
+### Pylint testion suorittaminen ###
+```bash
+poetry run invoke lint
 ```
