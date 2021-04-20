@@ -4,12 +4,12 @@ Sovellus on miinaharava-peli. Pelissä on pelikenttä, joka koostuu samannäköi
 
 Pelaaja voi myös kaivamisen sijasta asettaa lipun kaivamattomalle neliölle. Jos kaikilla neliöillä jotka sisältävät miinan on lippu, pelaaja voittaa pelin.
 
-* 🔴 - ei toteutettu
-* 🟡 - osittain toteutettu
-* 🟢 - toteutettu
+* 🔴 - ei tehty
+* 🟡 - osittain tehty/tekeminen aloitettu
+* 🟢 - tehty
 
 ### Perusversion toiminnallisuus ###
-* 🔴 Sovellus aukeaa päävalikkoon, jossa on pelaaja voi aloittaa uuden pelin, muuttaa pelin asetuksia, tai poistua pelistä
+* 🟡 Sovellus aukeaa päävalikkoon, jossa on pelaaja voi aloittaa uuden pelin, muuttaa pelin asetuksia, tai poistua pelistä
 * 🔴 Uusi peli-vaihtoehto aloittaa uuden pelin
   * 🟢 Pelaaja siirtyy toiseen näkymään, jossa on miinaharava-peli
   * 🟡 Pelilaudan koko ja miinojen määrä riippuu vaikeustasosta
