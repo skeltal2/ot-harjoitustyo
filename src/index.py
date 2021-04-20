@@ -1,8 +1,8 @@
 import pygame
 from gameloop import Gameloop
 
-x = 10
-y = 10
+x = 9
+y = 9
 # max mines = x * y - 9
 mines = 10
 tile_size = 36
