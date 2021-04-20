@@ -16,6 +16,9 @@ class Tile(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
+    def set_image(self, style):
+        self.image = pygame.image.load(os.path.join(dirname, "assets", style))
+
     def click(self):
         if self.status == 0:
             self.style = "tile.png"
@@ -40,8 +43,18 @@ class Tile(pygame.sprite.Sprite):
         elif self.status == 9:
             self.style = "flag.png"
 
-        self.image = pygame.image.load(os.path.join(dirname, "assets", self.style))
+        self.set_image(self.style)
 
-    # def flag(self):
-    #     self.style = "flag.png"
-    #     self.image = pygame.image.load(os.path.join(dirname, "assets", self.style))
+        return self.status
+
+    def flag(self):
+        self.style = "flag.png"
+        self.set_image(self.style)
+
+        return self.status
+
+    def unflag(self):
+        self.style = "tile2.png"
+        self.set_image(self.style)
+
+        return self.status

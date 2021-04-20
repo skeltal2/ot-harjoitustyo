@@ -1,28 +1,26 @@
 import pygame
 import os
-from field import Field
-from fieldgenerator import FieldGenerator
 from gameloop import Gameloop
 
-field_map = FieldGenerator(30, 16, 99, (-10, -10)).generate()
-
+x = 10
+y = 10
+mines = 10
 tile_size = 36
 
 def main():
-    height = len(field_map)
-    width = len(field_map[0])
-    display_height = height * tile_size
+    height = y
+    width = x
+    display_height = height * tile_size + tile_size
     display_width = width * tile_size
 
     display = pygame.display.set_mode((display_width, display_height))
+    display.fill((0, 0, 0))
 
     pygame.display.set_caption("Minesweeper")
 
-    field = Field(field_map, tile_size)
-
     pygame.init()
 
-    Gameloop(display, field, field_map).start()
+    Gameloop(display, x, y, mines, tile_size).start()
 
 if __name__ == "__main__":
     main()

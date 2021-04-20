@@ -1,4 +1,5 @@
-from random import randint
+from random import randint, sample
+from math import floor
 
 class FieldGenerator:
     def __init__(self, x:int, y:int, mines: int, first_click: tuple):
@@ -10,27 +11,35 @@ class FieldGenerator:
     def generate(self):
         horizontal = []
         matrix = []
+        free_cords = set()
 
         checks = [(-1, 1), (0, 1), (1, 1), (-1, 0), (0, 0), (1, 0), (-1, -1), (0, -1), (1, -1)]
 
         mine_checks = []
         for check in checks:
-            mine_checks.append((self.first_click[0] + check[0], self.first_click[1] + check[1]))
+            x_check = floor(self.first_click[0] / 36) + check[0]
+            y_check = floor(self.first_click[1] / 36) + check[1]
+
+            if x_check < 0 or y_check < 0 or x_check > self.x or y_check > self.y:
+                continue
+
+            mine_checks.append((x_check, y_check))
 
         for i in range(self.x):
             horizontal.append(0)
         for i in range(self.y):
             matrix.append(horizontal.copy())
 
+        for fc_y in range(self.y):
+            for fc_x in range(self.x):
+                if (fc_x, fc_y) not in mine_checks:
+                    free_cords.add((fc_x, fc_y))
+
         for i in range(self.mines):
-            mine_y = randint(0, self.y - 1)
-            mine_x = randint(0, self.x - 1)
+            mine_cord = sample(free_cords, 1)[0]
 
-            while (mine_x, mine_y) in mine_checks:
-                mine_y = randint(0, self.y - 1)
-                mine_x = randint(0, self.x - 1)
-
-            matrix[mine_y][mine_x] = -1
+            matrix[mine_cord[1]][mine_cord[0]] = -1
+            free_cords.remove((mine_cord[0], mine_cord[1]))
 
         for y in range(self.y):
             for x in range(self.x):

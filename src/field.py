@@ -16,6 +16,6 @@ class Field:
             for x in range(width):
                 n = field_map[y][x]
                 norm_x = x * self.tile_size
-                norm_y = y * self.tile_size
+                norm_y = y * self.tile_size + self.tile_size
 
                 self.tiles.add(Tile(n, norm_x, norm_y))
