@@ -1,5 +1,4 @@
 import pygame
-import os
 from gameloop import Gameloop
 
 x = 10

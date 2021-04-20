@@ -12,10 +12,10 @@ class Field:
         height = len(field_map)
         width = len(field_map[0])
 
-        for y in range(height):
-            for x in range(width):
-                n = field_map[y][x]
-                norm_x = x * self.tile_size
-                norm_y = y * self.tile_size + self.tile_size
+        for map_y in range(height):
+            for map_x in range(width):
+                value = field_map[map_y][map_x]
+                norm_x = map_x * self.tile_size
+                norm_y = map_y * self.tile_size + self.tile_size
 
-                self.tiles.add(Tile(n, norm_x, norm_y))
+                self.tiles.add(Tile(value, norm_x, norm_y))

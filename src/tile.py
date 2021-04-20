@@ -4,9 +4,9 @@ import pygame
 dirname = os.path.dirname(__file__)
 
 class Tile(pygame.sprite.Sprite):
-    def __init__(self, status: int, x: int, y: int):
+    def __init__(self, value: int, x: int, y: int):
         super().__init__()
-        self.status = status
+        self.value = value
 
         self.style = "tile2.png"
         self.image = pygame.image.load(os.path.join(dirname, "assets", self.style))
@@ -20,41 +20,41 @@ class Tile(pygame.sprite.Sprite):
         self.image = pygame.image.load(os.path.join(dirname, "assets", style))
 
     def click(self):
-        if self.status == 0:
+        if self.value == 0:
             self.style = "tile.png"
-        elif self.status == -1:
+        elif self.value == -1:
             self.style = "mine.png"
-        elif self.status == 1:
+        elif self.value == 1:
             self.style = "1.png"
-        elif self.status == 2:
+        elif self.value == 2:
             self.style = "2.png"
-        elif self.status == 3:
+        elif self.value == 3:
             self.style = "3.png"
-        elif self.status == 4:
+        elif self.value == 4:
             self.style = "4.png"
-        elif self.status == 5:
+        elif self.value == 5:
             self.style = "5.png"
-        elif self.status == 6:
+        elif self.value == 6:
             self.style = "6.png"
-        elif self.status == 7:
+        elif self.value == 7:
             self.style = "7.png"
-        elif self.status == 8:
+        elif self.value == 8:
             self.style = "8.png"
-        elif self.status == 9:
+        elif self.value == 9:
             self.style = "flag.png"
 
         self.set_image(self.style)
 
-        return self.status
+        return self.value
 
     def flag(self):
         self.style = "flag.png"
         self.set_image(self.style)
 
-        return self.status
+        return self.value
 
     def unflag(self):
         self.style = "tile2.png"
         self.set_image(self.style)
 
-        return self.status
+        return self.value

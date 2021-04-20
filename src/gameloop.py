@@ -4,12 +4,12 @@ from field import Field
 
 class Gameloop:
     def __init__(self, display, x, y, mines, tile_size):
-        self.x = x
-        self.y = y
+        self.field_x = x
+        self.field_y = y
         self.mines = mines
         self.tile_size = tile_size
 
-        self.field_map = FieldGenerator(self.x, self.y, 0, (0, 0)).generate()
+        self.field_map = FieldGenerator(self.field_x, self.field_y, 0, (0, 0)).generate()
         self.field = Field(self.field_map, self.tile_size)
 
         self.game_state = 0
@@ -23,12 +23,12 @@ class Gameloop:
 
     def start(self):
         while True:
-            if self._events() == False:
+            if self._events() is False:
                 break
 
             self._render()
             self._clock.tick(60)
-    
+
     def _events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -37,7 +37,9 @@ class Gameloop:
                 pos = pygame.mouse.get_pos()
 
                 if self._first_time:
-                    self.field_map = FieldGenerator(self.x, self.y, self.mines, pos).generate()
+                    self.field_map = FieldGenerator(
+                        self.field_x, self.field_y, self.mines, pos
+                        ).generate()
                     self.field = Field(self.field_map, self.tile_size)
                     self._first_time = False
 
@@ -46,6 +48,8 @@ class Gameloop:
 
                 elif event.button == 3:
                     self._flag(pos)
+            else:
+                pass
 
     def _render(self):
         if self.game_state == -1:
@@ -74,16 +78,17 @@ class Gameloop:
                 if tile.rect.collidepoint(position):
                     if tile.style == "flag.png":
                         break
-                    elif tile.status == 0:
+                    elif tile.value == 0:
                         cords = []
-                        for i in [(-36, 36), (0, 36), (36, 36), (-36, 0), (36, 0), (-36, -36), (0, -36), (36, -36)]:
+                        for i in [
+                            (-36, 36), (0, 36), (36, 36), (-36, 0),
+                            (36, 0), (-36, -36), (0, -36), (36, -36)]:
                             cords.append((tile.rect.x + i[0], tile.rect.y + i[1]))
-                        
                         self._game_state(tile.click())
 
                         for tile2 in self.field.tiles:
                             if (tile2.rect.x, tile2.rect.y) in cords:
-                                if tile2.status != 0 and tile2.style != "flag.png":
+                                if tile2.value != 0 and tile2.style != "flag.png":
                                     tile2.click()
                                 elif tile2.style == "tile2.png":
                                     tile2.click()
@@ -110,8 +115,8 @@ class Gameloop:
                             self.flagged_mines -= 1
                             self._game_state(9)
 
-    def _game_state(self, n):
-        if n == -1:
+    def _game_state(self, value):
+        if value == -1:
             self.game_state = -1
         elif self.flagged_mines == self.mines:
             self.game_state = 10
