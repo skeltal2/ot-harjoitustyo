@@ -11,7 +11,7 @@ Pelaaja voi myös kaivamisen sijasta asettaa lipun kaivamattomalle neliölle. Jo
 ### Perusversion toiminnallisuus ###
 * 🔴 Sovellus aukeaa päävalikkoon, jossa on pelaaja voi aloittaa uuden pelin, muuttaa pelin asetuksia, tai poistua pelistä
 * 🔴 Uusi peli-vaihtoehto aloittaa uuden pelin
-  * 🟢 Pelaaja siirtyy toiseen näkymään, jossa on pelilauta
+  * 🟢 Pelaaja siirtyy toiseen näkymään, jossa on miinaharava-peli
   * 🟡 Pelilaudan koko ja miinojen määrä riippuu vaikeustasosta
     * Helppo: 9 x 9 ruudukko, 10 miinaa
     * Keskitaso: 16 x 16 ruudukko, 40 miinaa
