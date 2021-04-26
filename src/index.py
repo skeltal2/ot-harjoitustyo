@@ -17,7 +17,7 @@ def main_no_main_menu():
     display = pygame.display.set_mode((display_width, display_height))
     display.fill((0, 0, 0))
 
-    pygame.display.set_caption("Minesweeper")
+    pygame.display.set_caption("Miinaharava")
 
     pygame.init() # pylint: disable=no-member
 
