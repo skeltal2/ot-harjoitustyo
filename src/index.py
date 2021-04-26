@@ -1,26 +1,33 @@
 import pygame
 from gameloop import Gameloop
+from mainmenu import MainMenu
 
-x = 16
-y = 16
+X = 16
+Y = 16
 # max mines = x * y - 9
-mines = 40
-tile_size = 36
+MINES = 40
+TILE_SIZE = 36
 
-def main():
-    height = y
-    width = x
-    display_height = height * tile_size + tile_size
-    display_width = width * tile_size
+def main_no_main_menu():
+    height = X
+    width = Y
+    display_height = height * TILE_SIZE + TILE_SIZE
+    display_width = width * TILE_SIZE
 
     display = pygame.display.set_mode((display_width, display_height))
     display.fill((0, 0, 0))
 
     pygame.display.set_caption("Minesweeper")
 
-    pygame.init()
+    pygame.init() # pylint: disable=no-member
 
-    Gameloop(display, x, y, mines, tile_size).start()
+    Gameloop(display, X, Y, MINES, TILE_SIZE).start()
+
+    pygame.display.quit()
+
+def main():
+    MainMenu()
 
 if __name__ == "__main__":
     main()
+    # main_no_main_menu()

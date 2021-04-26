@@ -32,9 +32,13 @@ class Gameloop:
 
     def _events(self):
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT: # pylint: disable=no-member
                 return False
-            elif event.type == pygame.MOUSEBUTTONUP:
+            elif event.type == pygame.MOUSEBUTTONUP: # pylint: disable=no-member
+                # After game over next click exists game
+                if self.game_state != 0:
+                    return False
+
                 pos = pygame.mouse.get_pos()
 
                 # Generate real field after first click
@@ -81,7 +85,8 @@ class Gameloop:
     def _open_tile(self, position):
         if self.game_state == 0: # Check if game in progress
             for tile in self.field.tiles:
-                # Iterate through all tiles and check if any tile collides with clicked position, then try to open tile. 
+                # Iterate through all tiles and check if any tile collides with clicked position,
+                # then try to open tile.
                 # Break loop when tile is found
                 if tile.rect.collidepoint(position): 
                     if tile.style == "flag.png": # Flagged tiles cannot be opened
@@ -98,14 +103,15 @@ class Gameloop:
                             if (tile2.rect.x, tile2.rect.y) in cords:
                                 if tile2.value != 0 and tile2.style != "flag.png":
                                     tile2.click()
-                                elif tile2.style == "tile2.png": # If any surrounding tile is empty, also open its surrounding tiles
+                                # If any surrounding tile is empty, also open its surrounding tiles
+                                elif tile2.style == "tile2.png":
                                     tile2.click()
                                     self._open_tile((tile2.rect.x, tile2.rect.y))
                         break
                     else: # Else, open tile and update game_state
                         self._game_state(tile.click())
                         break
-    
+
     def _flag(self, position):
         if self.game_state == 0:
             for tile in self.field.tiles:

@@ -62,3 +62,4 @@ class Tile(pygame.sprite.Sprite):
         self.set_image(self.style)
 
         return self.value
+        
