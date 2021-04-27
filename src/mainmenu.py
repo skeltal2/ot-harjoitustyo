@@ -93,7 +93,7 @@ class MainMenu:
         self.make_window()
 
     def make_window(self):
-        self.find_difficulty(self.var)
+        self._find_difficulty(self.var)
 
         pygame.display.set_mode((500, 500))
 
