@@ -14,7 +14,7 @@ class MainMenu:
         screen_x = (self.tk_root.winfo_screenwidth()/2) - (360/2)
         screen_y = (self.tk_root.winfo_screenheight()/2) - (240/2)
 
-        self.tk_root.geometry(f"360x240+{int(screeen_x)}+{int(screen_y)}")
+        self.tk_root.geometry(f"360x240+{int(screen_x)}+{int(screen_y)}")
 
         self.menu()
         self.tk_root.mainloop()
@@ -84,7 +84,7 @@ class MainMenu:
         )
 
         self.tk_root.grid_columnconfigure(1, weight=1)
-    
+
     def destroy(self):
         self.tk_root.destroy()
 
@@ -105,7 +105,7 @@ class MainMenu:
         display = pygame.display.set_mode((display_width, display_height))
         display.fill((0, 0, 0))
 
-        pygame.display.set_caption("Minesweeper")
+        pygame.display.set_caption("Miinaharava")
 
         pygame.init()
 
