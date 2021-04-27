@@ -53,7 +53,7 @@ class MainMenu:
         quit_button = tk.Button(
             master=self.tk_root,
             text="Poistu",
-            command=self.destroy
+            command=self._destroy
         )
 
         heading_label.grid(
@@ -85,7 +85,7 @@ class MainMenu:
 
         self.tk_root.grid_columnconfigure(1, weight=1)
 
-    def destroy(self):
+    def _destroy(self):
         self.tk_root.destroy()
 
     def start_game(self):
@@ -114,7 +114,7 @@ class MainMenu:
         pygame.display.quit()
         self.tk_root.deiconify()
 
-    def find_difficulty(self, var):
+    def _find_difficulty(self, var):
         if var.get() == 1:
             self.field_x = 9
             self.field_y = 9

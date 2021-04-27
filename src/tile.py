@@ -16,7 +16,7 @@ class Tile(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
-    def set_image(self, style):
+    def _set_image(self, style):
         self.image = pygame.image.load(os.path.join(dirname, "assets", style))
 
     # When tile is clicked assing correct sprite
@@ -47,19 +47,19 @@ class Tile(pygame.sprite.Sprite):
             self.value = 0
             self.style = "tile.png"
 
-        self.set_image(self.style)
+        self._set_image(self.style)
 
         return self.value
 
     def flag(self):
         self.style = "flag.png"
-        self.set_image(self.style)
+        self._set_image(self.style)
 
         return self.value
 
     def unflag(self):
         self.style = "tile2.png"
-        self.set_image(self.style)
+        self._set_image(self.style)
 
         return self.value
         
