@@ -6,6 +6,13 @@ Sovellus on klassinen miinaharava-peli. Pelaajan tavoitteena on etsiä kaikki mi
 
 [Työaikakirjanpito](https://github.com/skeltal2/ot-harjoitustyo/blob/master/Dokumentaatio/tyoaika.md)
 
+[Arkkitehtuurikuvaus](https://github.com/skeltal2/ot-harjoitustyo/blob/master/Dokumentaatio/arkkitehtuuri.md)
+
+## Asennus ##
+```bash
+poetry install
+```
+
 ## Komentorivi ##
 ### Ohjeman suorittaminen ###
 ```bash
