@@ -1,4 +1,4 @@
 /laskarit/viikko2/unicafe
 __pycache__
 htmlcov
-.gitignore
+.coverage
