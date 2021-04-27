@@ -19,7 +19,7 @@ def main_no_main_menu():
 
     pygame.display.set_caption("Miinaharava")
 
-    pygame.init() # pylint: disable=no-member
+    pygame.init()
 
     Gameloop(display, X, Y, MINES, TILE_SIZE).start()
 

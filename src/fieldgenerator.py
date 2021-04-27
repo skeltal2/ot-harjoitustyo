@@ -39,13 +39,13 @@ class FieldGenerator:
                 if (fc_x, fc_y) not in mine_checks:
                     free_cords.add((fc_x, fc_y))
 
-        # Pick a random cordinate from free_cords, add mine (-1) to matrix, then remove cordinate from free cords
+        # Pick a random cordinate from free_cords, add mine (-1) to matrix, then remove cordinate
         for i in range(self.mines):
-            mine_cord = sample(free_cords, 1)[0]
+            mine_cord = tuple(sample(free_cords, 1)[0])
 
             matrix[mine_cord[1]][mine_cord[0]] = -1
             free_cords.remove((mine_cord[0], mine_cord[1]))
-        
+
         # Go through every tile and find count of surrounding mines
         for field_y in range(self.field_y):
             for field_x in range(self.field_x):

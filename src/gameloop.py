@@ -32,9 +32,9 @@ class Gameloop:
 
     def _events(self):
         for event in pygame.event.get():
-            if event.type == pygame.QUIT: # pylint: disable=no-member
+            if event.type == pygame.QUIT:
                 return False
-            elif event.type == pygame.MOUSEBUTTONUP: # pylint: disable=no-member
+            if event.type == pygame.MOUSEBUTTONUP:
                 # After game over next click exists game
                 if self.game_state != 0:
                     return False
@@ -88,10 +88,10 @@ class Gameloop:
                 # Iterate through all tiles and check if any tile collides with clicked position,
                 # then try to open tile.
                 # Break loop when tile is found
-                if tile.rect.collidepoint(position): 
+                if tile.rect.collidepoint(position):
                     if tile.style == "flag.png": # Flagged tiles cannot be opened
                         break
-                    elif tile.value == 0: # If empty tile, also open all surrounding tiles
+                    if tile.value == 0: # If empty tile, also open all surrounding tiles
                         cords = []
                         for i in [
                             (-36, 36), (0, 36), (36, 36), (-36, 0),
@@ -108,9 +108,9 @@ class Gameloop:
                                     tile2.click()
                                     self._open_tile((tile2.rect.x, tile2.rect.y))
                         break
-                    else: # Else, open tile and update game_state
-                        self._game_state(tile.click())
-                        break
+                    # Else, open tile and update game_state
+                    self._game_state(tile.click())
+                    break
 
     def _flag(self, position):
         if self.game_state == 0:

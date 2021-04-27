@@ -4,17 +4,17 @@ from gameloop import Gameloop
 
 class MainMenu:
     def __init__(self):
-        self.x = 16
-        self.y = 16
+        self.field_x = 16
+        self.field_y = 16
         self.mines = 40
         self.tile_size = 36
 
         self.tk_root = tk.Tk()
 
-        x = (self.tk_root.winfo_screenwidth()/2) - (360/2)
-        y = (self.tk_root.winfo_screenheight()/2) - (240/2)
+        screen_x = (self.tk_root.winfo_screenwidth()/2) - (360/2)
+        screen_y = (self.tk_root.winfo_screenheight()/2) - (240/2)
 
-        self.tk_root.geometry(f"360x240+{int(x)}+{int(y)}")
+        self.tk_root.geometry(f"360x240+{int(screeen_x)}+{int(screen_y)}")
 
         self.menu()
         self.tk_root.mainloop()
@@ -97,8 +97,8 @@ class MainMenu:
 
         pygame.display.set_mode((500, 500))
 
-        height = self.y
-        width = self.x
+        height = self.field_y
+        width = self.field_x
         display_height = height * self.tile_size + self.tile_size
         display_width = width * self.tile_size
 
@@ -107,29 +107,29 @@ class MainMenu:
 
         pygame.display.set_caption("Minesweeper")
 
-        pygame.init() # pylint: disable=no-member
+        pygame.init()
 
-        Gameloop(display, self.x, self.y, self.mines, self.tile_size).start()
+        Gameloop(display, self.field_x, self.field_y, self.mines, self.tile_size).start()
 
         pygame.display.quit()
         self.tk_root.deiconify()
 
     def find_difficulty(self, var):
         if var.get() == 1:
-            self.x = 9
-            self.y = 9
+            self.field_x = 9
+            self.field_y = 9
             self.mines = 10
         elif var.get() == 2:
-            self.x = 16
-            self.y = 16
+            self.field_x = 16
+            self.field_y = 16
             self.mines = 40
         elif var.get() == 3:
-            self.x = 30
-            self.y = 16
+            self.field_x = 30
+            self.field_y = 16
             self.mines = 99
         else:
-            self.x = 16
-            self.y = 16
+            self.field_x = 16
+            self.field_y = 16
             self.mines = 40
 
 

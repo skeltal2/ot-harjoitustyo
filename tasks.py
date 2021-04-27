@@ -1,4 +1,4 @@
-from invoke import task # pylint: disable=import-error
+from invoke import task
 
 @task
 def start(ctx):
