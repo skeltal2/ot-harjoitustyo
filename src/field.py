@@ -2,7 +2,18 @@ import pygame
 from tile import Tile
 
 class Field:
+    """Object to contain tile objects.
+
+    Attributes:
+        field_map: Matrix with tile locations and styles.
+        tile_size: Lenght of tile side in pixels.
+    """
     def __init__(self, field_map, tile_size):
+        """Initialize Field object.
+
+        Args:
+            tiles: Sprite Group of tiles
+        """
         self.tile_size = tile_size
         self.tiles = pygame.sprite.Group()
 

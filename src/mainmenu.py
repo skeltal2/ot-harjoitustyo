@@ -3,11 +3,23 @@ import pygame
 from gameloop import Gameloop
 
 class MainMenu:
+    """Main menu and window for game.
+
+    """
     def __init__(self):
+        """Initialize main menu.
+
+        Args:
+            field_x: Field width in tiles.
+            field_y: Field heigh in tiles.
+            mines: Amount of mines on the field.
+            tile_size: Tile side lenght in pixels.
+            tk_root: Main menu tkinter window
+        """
         self.field_x = 16
         self.field_y = 16
         self.mines = 40
-        self.tile_size = 36
+        self.tile_size = 36 # Should always be 36
 
         self.tk_root = tk.Tk()
 
@@ -21,6 +33,9 @@ class MainMenu:
 
 
     def menu(self):
+        """Set up buttons for main menu.
+
+        """
         self.var = tk.IntVar(self.tk_root, 0)
 
         heading_label = tk.Label(
@@ -86,13 +101,22 @@ class MainMenu:
         self.tk_root.grid_columnconfigure(1, weight=1)
 
     def _destroy(self):
+        """Destroy tkinter window.
+
+        """
         self.tk_root.destroy()
 
     def start_game(self):
+        """Start game in new window.
+
+        """
         self.tk_root.withdraw()
         self.make_window()
 
     def make_window(self):
+        """Create window for new game.
+
+        """
         self._find_difficulty(self.var)
 
         pygame.display.set_mode((500, 500))
@@ -115,6 +139,9 @@ class MainMenu:
         self.tk_root.deiconify()
 
     def _find_difficulty(self, var):
+        """Set game difficulty for new game
+
+        """
         if var.get() == 1:
             self.field_x = 9
             self.field_y = 9
@@ -131,6 +158,8 @@ class MainMenu:
             self.field_x = 16
             self.field_y = 16
             self.mines = 40
+        
+        # MAX MINES: x * y - 9
 
 
 if __name__ == "__main__":

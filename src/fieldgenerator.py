@@ -2,13 +2,34 @@ from random import sample
 from math import floor
 
 class FieldGenerator:
-    def __init__(self, x:int, y:int, mines: int, first_click: tuple):
+    """Class used to generate fields.
+
+    Attributes:
+        x: Horizontal tiles.
+        y: Vertical tiles.
+        mines: Amount of mines.
+        first_click: Cordinates of first click
+    """
+    def __init__(self, x: int, y: int, mines: int, first_click: tuple):
+        """Initialize field generator.
+
+        Args:
+            field_x: Horizontal tiles.
+            field_y: Vertical tile.
+            mines: Amount of mines.
+            first_clikc: Cordinates of first click
+        """
         self.field_x = x
         self.field_y = y
         self.mines = mines
         self.first_click = first_click
 
     def generate(self):
+        """Returns a field.
+
+        Returns:
+            X by Y matrix with mines based on initilized values.
+        """
         horizontal = []
         matrix = []
         free_cords = set() # List of cordinates where mines can be placed
@@ -28,10 +49,7 @@ class FieldGenerator:
             mine_checks.append((x_check, y_check))
 
         # Create x * y matrix
-        for i in range(self.field_x):
-            horizontal.append(0)
-        for i in range(self.field_y):
-            matrix.append(horizontal.copy())
+        matrix = self._create_matrix(self.field_x, self.field_y)
 
         # Add possible mine cordinates to free_cords
         for fc_y in range(self.field_y):
@@ -53,7 +71,7 @@ class FieldGenerator:
                     continue
                 tile_value = 0
 
-                for i in checks: # Make sure checks don't wrap around the field
+                for i in checks: # Make sure numbers don't wrap around the field
                     y_check = field_y + i[1]
                     if y_check < 0 or y_check > self.field_y - 1:
                         continue
@@ -65,4 +83,22 @@ class FieldGenerator:
                     if matrix[y_check][x_check] == -1:
                         tile_value += 1
                 matrix[field_y][field_x] = tile_value
+        return matrix
+
+    def _create_matrix(self, horizontal: int, vertical: int):
+        """Create empty X by Y matrix.
+
+        Args:
+            horizontal: Matrix width.
+            vertical: Matrix height.
+
+        Returns:
+            Empty X by Y matrix.
+        """
+        line = []
+        matrix = []
+        for i in range(vertical):
+            line.append(0)
+        for i in range(horizontal):
+            matrix.append(line.copy())
         return matrix

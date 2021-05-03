@@ -3,7 +3,29 @@ from fieldgenerator import FieldGenerator
 from field import Field
 
 class Gameloop:
-    def __init__(self, display, x, y, mines, tile_size):
+    """Class contains main gameloop for running the game itself.
+
+    Attributes:
+        display: Display where game renders.
+        x: Field width in tiles.
+        y: Field height in tiles.
+        mines: Amount of mines on the field.
+        tile_size: Lenght of a single tiles's side in pixels.
+    """
+    def __init__(self, display: pygame.display, x: int, y: int, mines: int, tile_size: int):
+        """Initialize gameloop.
+
+        Args:
+            field_x: Field width in tiles.
+            field_y: Field height in tiles.
+            mines: Amount of mines on the field.
+            tile_size: Lenght of a single tiles's side in pixels.
+            field: Field object with tile sprites.
+            field_map: Matrix with tile values.
+            game_state: Current game state (-1 Game over, 10 Game won, 0 Game in progress)
+            flagged_mines: Flagged mines count.
+            flags: How many flags player can place.
+        """
         self.field_x = x
         self.field_y = y
         self.mines = mines
@@ -23,6 +45,9 @@ class Gameloop:
         self._display = display
 
     def start(self):
+        """Start the game.
+
+        """
         while True:
             if self._events() is False:
                 break
