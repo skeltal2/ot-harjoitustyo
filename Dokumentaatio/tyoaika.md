@@ -8,4 +8,6 @@
 | 20.4  | 5    | peli on nyt pelattava, pylintin käyttöönotto ja sen antamien virheiden korjaaminen |
 | 26.4  | 6    | tkinterin avulla luotu käyttöliittymä, jossa voi aloitta uuden pelin ja vaihtaa vaikeustasoa |
 | 27.4  | 4    | korjauksia ja kaavioihin tutustuminen |
-| Yht   | 32   |
+| 3.5   | 3    | docstring tutustuminen ja toteutus |
+| 4.5   | 3    | koodikatselmointi ja uusien testies toteuttamista |
+| Yht   | 38   |
