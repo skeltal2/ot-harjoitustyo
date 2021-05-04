@@ -3,7 +3,7 @@ import pygame
 from gameloop import Gameloop
 
 class MainMenu:
-    """Main menu and window for game.
+    """Main menu and window for the game.
 
     """
     def __init__(self):
@@ -26,7 +26,7 @@ class MainMenu:
         screen_x = (self.tk_root.winfo_screenwidth()/2) - (360/2)
         screen_y = (self.tk_root.winfo_screenheight()/2) - (240/2)
 
-        self.tk_root.geometry(f"360x240+{int(screen_x)}+{int(screen_y)}")
+        self.tk_root.geometry(f"360x240+{int(screen_x)}+{int(screen_y)}") # Center window
 
         self.menu()
         self.tk_root.mainloop()
@@ -118,8 +118,6 @@ class MainMenu:
 
         """
         self._find_difficulty(self.var)
-
-        pygame.display.set_mode((500, 500))
 
         height = self.field_y
         width = self.field_x

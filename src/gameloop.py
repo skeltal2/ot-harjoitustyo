@@ -147,12 +147,14 @@ class Gameloop:
                         if tile.flag() == -1:
                             self.flagged_mines += 1
                             self._game_state(9)
+                        return tile
                     # If tile is flagged, remove flag and update flag count
                     elif tile.style == "flag.png":
                         self.flags += 1
                         if tile.unflag() == -1:
                             self.flagged_mines -= 1
                             self._game_state(9)
+                        return tile
 
     def _game_state(self, value):
         # If mine was clicked, set game_state to game over (-1)

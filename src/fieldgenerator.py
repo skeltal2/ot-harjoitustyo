@@ -28,7 +28,7 @@ class FieldGenerator:
         """Returns a field.
 
         Returns:
-            X by Y matrix with mines based on initilized values.
+            X by Y matrix with mines based on initialized values.
         """
         horizontal = []
         matrix = []
