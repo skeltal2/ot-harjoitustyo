@@ -24,6 +24,7 @@ class MainMenu:
         self.tile_size = 36 # Should always be 36
 
         self.tk_root = tk.Tk()
+        self.tk_root.title("Miinaharava")
 
         screen_x = (self.tk_root.winfo_screenwidth()/2) - (360/2)
         screen_y = (self.tk_root.winfo_screenheight()/2) - (240/2)

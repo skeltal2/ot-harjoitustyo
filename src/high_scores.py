@@ -17,6 +17,8 @@ class HighScores:
         self._create_table(self.scores_2, 2)
         self._create_table(self.scores_3, 3)
 
+        self.tk_root.title("Tulokset")
+
         button = tk.Button(
             self.tk_root,
             text="Takaisin",
@@ -30,9 +32,14 @@ class HighScores:
         self.tk_root.mainloop()
 
     def _load_data(self):
+        # Create table if it doesn't exist
+        self.db.execute("CREATE TABLE IF NOT EXISTS scores (id INTEGER PRIMARY KEY, score INTEGER, mode INTEGER, name TEXT);")
+        self.db.commit()
+
         self.scores_1 = self.db.execute("SELECT score, name FROM scores WHERE mode = 1 ORDER BY score;").fetchall()
         self.scores_2 = self.db.execute("SELECT score, name FROM scores WHERE mode = 2 ORDER BY score;").fetchall()
         self.scores_3 = self.db.execute("SELECT score, name FROM scores WHERE mode = 3 ORDER BY score;").fetchall()
+
 
     def _create_table(self, data, mode):
         if mode == 1:
