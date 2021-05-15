@@ -1,6 +1,8 @@
+from os import name
 import tkinter as tk
 import pygame
 from gameloop import Gameloop
+from high_scores import HighScores
 
 class MainMenu:
     """Main menu and window for the game.
@@ -37,6 +39,7 @@ class MainMenu:
 
         """
         self.var = tk.IntVar(self.tk_root, 0)
+        self.name_var = tk.StringVar(self.tk_root)
 
         heading_label = tk.Label(
             master=self.tk_root,
@@ -64,6 +67,19 @@ class MainMenu:
             text="Vaikea",
             variable=self.var,
             value=3
+        )
+        name_field = tk.Entry(
+            master=self.tk_root,
+            textvariable=self.name_var
+        )
+        label = tk.Label(
+            master=self.tk_root,
+            text="Nimi:"
+        )
+        scores_button = tk.Button(
+            master=self.tk_root,
+            text="Tulokset",
+            command=self.show_scores
         )
         quit_button = tk.Button(
             master=self.tk_root,
@@ -93,8 +109,22 @@ class MainMenu:
             row=3, column=2,
             padx=5, pady=5
         )
+        name_field.grid(
+            row=5, column=1,
+            sticky=(tk.constants.E, tk.constants.W),
+            padx=5, pady=10
+        )
+        label.grid(
+            row=5, column=0
+        )
+        scores_button.grid(
+            row=7, column=1,
+            sticky=(tk.constants.E, tk.constants.W),
+            padx=5, pady=10
+        )
         quit_button.grid(
-            row=5, column=1, sticky=(tk.constants.E, tk.constants.W),
+            row=9, column=1,
+            sticky=(tk.constants.E, tk.constants.W),
             padx=5, pady=10
         )
 
@@ -110,6 +140,7 @@ class MainMenu:
         """Start game in new window.
 
         """
+        self.name = self.name_var.get()
         self.tk_root.withdraw()
         self.make_window()
 
@@ -130,11 +161,20 @@ class MainMenu:
         pygame.display.set_caption("Miinaharava")
 
         pygame.init()
+        
+        if self.var.get() > 3 or len(self.name) < 1:
+            use_score = False
+        else:
+            use_score = True
 
-        Gameloop(display, self.field_x, self.field_y, self.mines, self.tile_size).start()
+        Gameloop(display, self.field_x, self.field_y, self.mines, self.tile_size, (self.var.get(), self.name), use_score).start()
 
         pygame.display.quit()
         self.tk_root.deiconify()
+
+    def show_scores(self):
+        self.tk_root.withdraw()
+        HighScores(self.tk_root)
 
     def _find_difficulty(self, var):
         """Set game difficulty for new game
@@ -158,7 +198,6 @@ class MainMenu:
             self.mines = 40
         
         # MAX MINES: x * y - 9
-
 
 if __name__ == "__main__":
     MainMenu()

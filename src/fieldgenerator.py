@@ -97,8 +97,8 @@ class FieldGenerator:
         """
         line = []
         matrix = []
-        for i in range(vertical):
-            line.append(0)
         for i in range(horizontal):
+            line.append(0)
+        for i in range(vertical):
             matrix.append(line.copy())
         return matrix

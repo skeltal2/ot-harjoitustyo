@@ -1,4 +1,5 @@
 import pygame
+import sqlite3
 from fieldgenerator import FieldGenerator
 from field import Field
 
@@ -12,7 +13,7 @@ class Gameloop:
         mines: Amount of mines on the field.
         tile_size: Lenght of a single tiles's side in pixels.
     """
-    def __init__(self, display: pygame.display, x: int, y: int, mines: int, tile_size: int):
+    def __init__(self, display: pygame.display, x: int, y: int, mines: int, tile_size: int, data: tuple, use_score: bool):
         """Initialize gameloop.
 
         Args:
@@ -25,6 +26,8 @@ class Gameloop:
             game_state: Current game state (-1 Game over, 10 Game won, 0 Game in progress)
             flagged_mines: Flagged mines count.
             flags: How many flags player can place.
+            data: Game difficulty and player name for database.
+            use_score: Save score after game.
         """
         self.field_x = x
         self.field_y = y
@@ -38,8 +41,18 @@ class Gameloop:
         self.game_state = 0 # Game state: -1 Game over, 10 Game won, 0 Game in progress
         self.flagged_mines = 0
         self.flags = mines # Flags player can use
-        self.font = pygame.font.SysFont("Calibri", 36)
+        self.font = pygame.font.SysFont("Consolas", 32)
 
+        # Database for scores
+        self.database = sqlite3.connect("src/database/scores.db")
+        # Create table for first run
+        self.database.execute("CREATE TABLE IF NOT EXISTS scores (id INTEGER PRIMARY KEY, score INTEGER, mode INTEGER, name TEXT);")
+        self.database.commit()
+        self.data = data
+        self.use_score = use_score
+
+        self._start_time = 0
+        self._time = 0
         self._first_time = True
         self._clock = pygame.time.Clock()
         self._display = display
@@ -48,12 +61,14 @@ class Gameloop:
         """Start the game.
 
         """
+        self._start_time = pygame.time.get_ticks()
         while True:
             if self._events() is False:
                 break
-
             self._render()
             self._clock.tick(60)
+        if self.game_state == 10 and self.use_score:
+            self._save_score(self._time)
 
     def _events(self):
         for event in pygame.event.get():
@@ -86,23 +101,29 @@ class Gameloop:
 
     def _render(self):
         if self.game_state == -1:
-            text = "Hävisit pelin"
+            color = (255, 0, 0)
         elif self.game_state == 10:
-            text = "Voitit pelin"
+            color = (0, 255, 0)
         else:
-            text = ""
+            self._time = pygame.time.get_ticks() - self._start_time
+            color = (255, 255, 255)
 
         self._display.fill((0, 0, 0))
 
+        # Draw tiles
         self.field.tiles.draw(self._display)
 
-        # Show text in top right
-        end = self.font.render(text, True, (255, 255, 255))
-        self._display.blit(end, (self._display.get_width() - end.get_width(), 0))
-
         # Show number of flags
-        flg = self.font.render(f"{self.flags}", True, (255, 255, 255))
+        flg = self.font.render(f"{self.flags}", True, color)
         self._display.blit(flg, flg.get_rect())
+
+        # Covert to minutes and seconds
+        seconds = "0" + str(int((self._time/1000)%60))
+        minutes = "0" + str(int((self._time/(1000*60))%60))
+
+        # Draw timer
+        time = self.font.render(f"{minutes[-2:]}:{seconds[-2:]}", True, color)
+        self._display.blit(time, ((self._display.get_width() / 2) - (time.get_width() / 2), 0))
 
         pygame.display.flip()
         pygame.display.update()
@@ -165,3 +186,11 @@ class Gameloop:
             self.game_state = 10
         else:
             self.game_state = 0
+
+    # Upload score to database
+    def _save_score(self, score: int):
+        mode = self.data[0]
+        name = self.data[1]
+
+        self.database.execute("INSERT INTO scores (score, mode, name) VALUES (?, ?, ?)", (score, mode, name))
+        self.database.commit()
