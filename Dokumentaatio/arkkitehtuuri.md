@@ -23,7 +23,7 @@ Jos pelaaja ei anna nimeä, pelin tulosta ei tallenneta.
 
 ## Luokkakaavio
 Luokkien riippuvuudet toisistaan:
-![image](https://user-images.githubusercontent.com/77693693/118407751-c44c2a00-b68a-11eb-9a98-69280b6cc399.png)
+![image](https://user-images.githubusercontent.com/77693693/118407818-19883b80-b68b-11eb-9d68-213ec44bb382.png)
 
 ## Sekvenssikaavio
 ![image](https://user-images.githubusercontent.com/77693693/116299883-e6970a00-a7a6-11eb-9d39-b6fa6b2408bb.png)
