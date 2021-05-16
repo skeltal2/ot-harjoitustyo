@@ -41,7 +41,7 @@ Valitse nimi, jolla voitetun pelin aika tallennetaan. Jos nimi jätetään tyhj�
 ### Tulokset
 ![image](https://user-images.githubusercontent.com/77693693/118402843-5f85d500-b674-11eb-9994-a5c4ffa90aef.png)
 
-Vaihtoehto avaa toinsen näkymän, jossa voi katsoa parhaita tuloksia. Tulokset on jaettu kolmeen eri taulukkoon vaikeusasteen perusteella. Jokaisessa taulukossa on 10 parasta aikaa ja jokaisen ajan saavuttanut nimi. Tulokset näymästä voi siirtyä takaisin päävalikkoon painamalla takaisin-painiketta ikkunan alaosassa.
+Vaihtoehto avaa toisen näkymän, jossa voi katsoa parhaita tuloksia. Tulokset on jaettu kolmeen eri taulukkoon vaikeusasteen perusteella. Jokaisessa taulukossa on 10 parasta aikaa ja jokaisen ajan saavuttanut nimi. Tulokset näymästä voi siirtyä takaisin päävalikkoon painamalla takaisin-painiketta ikkunan alaosassa.
 
 ### Poistu
 Vaihtoehto sulkee ohjelman. Ohjelman voi myös sulkea milloin tahansa painamalla X-painiketta.
