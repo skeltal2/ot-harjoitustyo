@@ -6,13 +6,16 @@ class TestTile(unittest.TestCase):
         self.tile = Tile(-1, 0, 0)
     
     def test_tile_can_be_clicked(self):
-        self.assertEqual(self.tile.click(), -1)
+        self.tile.click()
+        self.assertEqual(self.tile.style, "mine.png")
     
-    def test_tile_can_be_unflaged(self):
-        self.assertEqual(self.tile.flag(), -1)
+    def test_tile_can_be_flagged(self):
+        self.tile.flag()
+        self.assertEqual(self.tile.style, "flag.png")
     
     def test_tile_can_be_unflagged(self):
-        self.assertEqual(self.tile.unflag(), -1)
+        self.tile.unflag()
+        self.assertEqual(self.tile.style, "tile2.png")
 
     def test_tile_style_click_0(self):
         tile = Tile(0, 0, 0)

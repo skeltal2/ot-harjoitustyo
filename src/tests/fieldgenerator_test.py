@@ -19,4 +19,3 @@ class TestFieldGenerator(unittest.TestCase):
                     n += 1
         
         self.assertEqual(5, n)
-    

@@ -31,4 +31,3 @@ class Field:
                 norm_y = map_y * self.tile_size + self.tile_size
 
                 self.tiles.add(Tile(value, norm_x, norm_y))
-        return True
