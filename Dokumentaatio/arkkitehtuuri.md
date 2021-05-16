@@ -22,7 +22,8 @@ Taulukossa on neljä saraketta. _Score_ sarakkeessa on pelaajan käyttämä aika
 Jos pelaaja ei anna nimeä, pelin tulosta ei tallenneta.
 
 ## Luokkakaavio
-![image](https://user-images.githubusercontent.com/77693693/116288587-55ba3180-a79a-11eb-9097-8e403c5f6c11.png)
+Luokkien riippuvuudet toisistaan:
+![image](https://user-images.githubusercontent.com/77693693/118407751-c44c2a00-b68a-11eb-9a98-69280b6cc399.png)
 
 ## Sekvenssikaavio
 ![image](https://user-images.githubusercontent.com/77693693/116299883-e6970a00-a7a6-11eb-9d39-b6fa6b2408bb.png)
