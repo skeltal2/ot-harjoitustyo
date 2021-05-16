@@ -25,7 +25,7 @@ Päävalikossa on 5 eri vaihtoehota:
 Aloita uusi peli valitulla vaikeusasteella. Jos vaikeusastetta ei ole valittu peli alkaa keskitaso-vaikeusasteella.
 ![image](https://user-images.githubusercontent.com/77693693/118403056-52b5b100-b675-11eb-8b5f-ec27034e97d0.png)
 
-Peliruudun yläreunassa näkyy kuinka monta lippua pelaaja voi asettaa ja kulunut aika. Pelaaja voi asetaa yhtä monta lippua, kun kentällä on miinoja.
+Peliruudun yläreunassa näkyy kuinka monta lippua pelaaja voi asettaa ja kulunut aika. Pelaaja voi asetaa yhtä monta lippua, kuin kentällä on miinoja.
 
 Pelaaja voi avata ruudun hiiren vasemmalla painikkeella. Pelaaja voi asettaa lipun hiiren oikealla painikkeella. Pelaaja voittaa pelin kun kaikilla avaamattomilla ruuduilla, joissa on miina on, lippu. Jos pelaaja avaa ruudun, jossa on miina, peli päättyy.
 
