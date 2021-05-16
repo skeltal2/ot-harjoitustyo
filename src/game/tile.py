@@ -13,7 +13,7 @@ class Tile(pygame.sprite.Sprite):
     """
     def __init__(self, value: int, tile_x: int, tile_y: int):
         """Initialize tile.
-        
+
         Args:
             value: Tile's sprite, from -1 to 9.
             style: File name of sprite asset.
@@ -26,7 +26,7 @@ class Tile(pygame.sprite.Sprite):
         self.value = value
 
         self.style = "tile2.png"
-        self.image = pygame.image.load(os.path.join(dirname, "assets", self.style))
+        self.image = pygame.image.load(os.path.join(dirname, "../assets", self.style))
 
         self.rect = self.image.get_rect()
 
@@ -39,7 +39,7 @@ class Tile(pygame.sprite.Sprite):
         Args:
             style: Tile's sprite, from -1 to 9.
         """
-        self.image = pygame.image.load(os.path.join(dirname, "assets", style))
+        self.image = pygame.image.load(os.path.join(dirname, "../assets", style))
 
     # When tile is clicked assing correct sprite
     def click(self):
@@ -99,4 +99,3 @@ class Tile(pygame.sprite.Sprite):
         self._set_image(self.style)
 
         return self.value
-

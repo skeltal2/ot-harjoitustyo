@@ -1,5 +1,5 @@
 import unittest
-from fieldgenerator import FieldGenerator
+from game.fieldgenerator import FieldGenerator
 
 class TestFieldGenerator(unittest.TestCase):
     def setUp(self):

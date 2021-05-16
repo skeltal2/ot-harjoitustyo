@@ -1,11 +1,11 @@
 import unittest
 import pygame
-from gameloop import Gameloop
+from game.gameloop import Gameloop
 
 class TestGameloop(unittest.TestCase):
     def setUp(self):
         pygame.init()
-        self.gameloop = Gameloop(None, 10, 10, 0, 36)
+        self.gameloop = Gameloop(None, 10, 10, 0, 36, False)
 
     def test_tile_can_be_opened(self):
         x = []

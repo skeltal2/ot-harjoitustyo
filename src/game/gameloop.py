@@ -1,7 +1,7 @@
-import pygame
 import sqlite3
-from fieldgenerator import FieldGenerator
-from field import Field
+import pygame
+from game.fieldgenerator import FieldGenerator
+from game.field import Field
 
 class Gameloop:
     """Class contains main gameloop for running the game itself.
@@ -11,16 +11,17 @@ class Gameloop:
         x: Field width in tiles.
         y: Field height in tiles.
         mines: Amount of mines on the field.
-        tile_size: Lenght of a single tiles's side in pixels.
     """
-    def __init__(self, display: pygame.display, x: int, y: int, mines: int, tile_size: int, data: tuple, use_score: bool):
+    def __init__(
+            self, display: pygame.display, x: int, y: int, mines: int,
+            data: tuple, use_score: bool
+        ):
         """Initialize gameloop.
 
         Args:
             field_x: Field width in tiles.
             field_y: Field height in tiles.
             mines: Amount of mines on the field.
-            tile_size: Lenght of a single tiles's side in pixels.
             field: Field object with tile sprites.
             field_map: Matrix with tile values.
             game_state: Current game state (-1 Game over, 10 Game won, 0 Game in progress)
@@ -32,7 +33,7 @@ class Gameloop:
         self.field_x = x
         self.field_y = y
         self.mines = mines
-        self.tile_size = tile_size
+        self.tile_size = 36 # Should always be 36
 
         # Generate dummy field to show before first click
         self.field_map = FieldGenerator(self.field_x, self.field_y, 0, (0, 0)).generate()
@@ -46,7 +47,14 @@ class Gameloop:
         # Database for scores
         self.database = sqlite3.connect("src/database/scores.db")
         # Create table for first run
-        self.database.execute("CREATE TABLE IF NOT EXISTS scores (id INTEGER PRIMARY KEY, score INTEGER, mode INTEGER, name TEXT);")
+        self.database.execute("""
+            CREATE TABLE IF NOT EXISTS scores (
+                id INTEGER PRIMARY KEY,
+                score INTEGER,
+                mode INTEGER,
+                name TEXT
+            );
+            """)
         self.database.commit()
         self.data = data
         self.use_score = use_score
@@ -96,8 +104,6 @@ class Gameloop:
                 # Place flag (right mouse)
                 elif event.button == 3:
                     self._flag(pos)
-            else:
-                pass
 
     def _render(self):
         if self.game_state == -1:
@@ -187,10 +193,12 @@ class Gameloop:
         else:
             self.game_state = 0
 
-    # Upload score to database
     def _save_score(self, score: int):
         mode = self.data[0]
         name = self.data[1]
 
-        self.database.execute("INSERT INTO scores (score, mode, name) VALUES (?, ?, ?)", (score, mode, name))
+        self.database.execute(
+                "INSERT INTO scores (score, mode, name) VALUES (?, ?, ?)",
+                (score, mode, name)
+            )
         self.database.commit()

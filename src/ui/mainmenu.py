@@ -1,8 +1,7 @@
-from os import name
 import tkinter as tk
 import pygame
-from gameloop import Gameloop
-from high_scores import HighScores
+from game.gameloop import Gameloop
+from ui.high_scores import HighScores
 
 class MainMenu:
     """Main menu and window for the game.
@@ -16,7 +15,7 @@ class MainMenu:
             field_y: Field heigh in tiles.
             mines: Amount of mines on the field.
             tile_size: Tile side lenght in pixels.
-            tk_root: Main menu tkinter window
+            tk_root: Window tkinter root.
         """
         self.field_x = 16
         self.field_y = 16
@@ -26,10 +25,10 @@ class MainMenu:
         self.tk_root = tk.Tk()
         self.tk_root.title("Miinaharava")
 
+        # Center window
         screen_x = (self.tk_root.winfo_screenwidth()/2) - (360/2)
         screen_y = (self.tk_root.winfo_screenheight()/2) - (240/2)
-
-        self.tk_root.geometry(f"360x240+{int(screen_x)}+{int(screen_y)}") # Center window
+        self.tk_root.geometry(f"360x240+{int(screen_x)}+{int(screen_y)}")
 
         self.menu()
         self.tk_root.mainloop()
@@ -38,10 +37,14 @@ class MainMenu:
     def menu(self):
         """Set up buttons for main menu.
 
+        Args:
+            var: Game difficlty.
+            name_var Player name.
         """
         self.var = tk.IntVar(self.tk_root, 0)
         self.name_var = tk.StringVar(self.tk_root)
 
+        # Create widgetes
         heading_label = tk.Label(
             master=self.tk_root,
             text="Miinaharava",
@@ -88,6 +91,7 @@ class MainMenu:
             command=self._destroy
         )
 
+        # Assings widgets to grid
         heading_label.grid(
             row=0, column=0, columnspan=3,
             sticky=(tk.constants.E, tk.constants.W),
@@ -132,21 +136,17 @@ class MainMenu:
         self.tk_root.grid_columnconfigure(1, weight=1)
 
     def _destroy(self):
-        """Destroy tkinter window.
-
-        """
         self.tk_root.destroy()
 
     def start_game(self):
         """Start game in new window.
 
         """
-        self.name = self.name_var.get()
         self.tk_root.withdraw()
         self.make_window()
 
     def make_window(self):
-        """Create window for new game.
+        """Create window for a new game.
 
         """
         self._find_difficulty(self.var)
@@ -162,23 +162,29 @@ class MainMenu:
         pygame.display.set_caption("Miinaharava")
 
         pygame.init()
-        
-        if self.var.get() > 3 or len(self.name) < 1:
+
+        if self.var.get() > 3 or len(self.name_var.get()) < 1:
             use_score = False
         else:
             use_score = True
 
-        Gameloop(display, self.field_x, self.field_y, self.mines, self.tile_size, (self.var.get(), self.name), use_score).start()
+        Gameloop(
+            display, self.field_x, self.field_y, self.mines,
+            (self.var.get(), self.name_var.get()), use_score
+        ).start()
 
         pygame.display.quit()
         self.tk_root.deiconify()
 
     def show_scores(self):
+        """Open a new window to show high scores.
+
+        """
         self.tk_root.withdraw()
         HighScores(self.tk_root)
 
     def _find_difficulty(self, var):
-        """Set game difficulty for new game
+        """Set game difficulty for a new game
 
         """
         if var.get() == 1:
@@ -197,7 +203,7 @@ class MainMenu:
             self.field_x = 16
             self.field_y = 16
             self.mines = 40
-        
+
         # MAX MINES: x * y - 9
 
 if __name__ == "__main__":

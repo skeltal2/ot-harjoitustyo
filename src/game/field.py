@@ -1,5 +1,5 @@
 import pygame
-from tile import Tile
+from game.tile import Tile
 
 class Field:
     """Object to contain tile objects.
