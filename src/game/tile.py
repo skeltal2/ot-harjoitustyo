@@ -7,20 +7,18 @@ class Tile(pygame.sprite.Sprite):
     """Tile object.
 
     Attributes:
-        value: Tile's sprite, from -1 to 9.
-        tile_x: Tile's X cordinate.
-        tile_y: Tile's Y cordinate.
+        value: Type of tile (from -1 to 9)
+        style: Name of sprite file.
+        image: Sprite file.
+        rect: Rect collider
     """
     def __init__(self, value: int, tile_x: int, tile_y: int):
         """Initialize tile.
 
         Args:
-            value: Tile's sprite, from -1 to 9.
-            style: File name of sprite asset.
-            image: Tile's sprite.
-
-            rect.x: Tile's X cordinate.
-            rect.y: Tile's Y cordinate.
+            value: Type of tile (-1: mine, 0: empty, 1 - 8: number, 9: flag).
+            tile_x: X cordinate.
+            tile_y: Y cordinate.
         """
         super().__init__()
         self.value = value
@@ -34,19 +32,14 @@ class Tile(pygame.sprite.Sprite):
         self.rect.y = tile_y
 
     def _set_image(self, style):
-        """Set a sprite for a tile.
-
-        Args:
-            style: Tile's sprite, from -1 to 9.
-        """
         self.image = pygame.image.load(os.path.join(dirname, "../assets", style))
 
     # When tile is clicked assing correct sprite
     def click(self):
-        """Update tile sprite and return sprite value.
+        """Change sprite from hidden to sprite that matches tile's type.
 
         Returns:
-            value: Sprite value
+            value: Tile's type
         """
         if self.value == 0:
             self.style = "tile.png"
@@ -79,10 +72,10 @@ class Tile(pygame.sprite.Sprite):
         return self.value
 
     def flag(self):
-        """Change tile's sprite to a flag and return sprite value.
+        """Change tile to flagged tile.
 
         Returns:
-            value: Sprite value
+            value: Tile's value
         """
         self.style = "flag.png"
         self._set_image(self.style)
@@ -90,10 +83,10 @@ class Tile(pygame.sprite.Sprite):
         return self.value
 
     def unflag(self):
-        """Change tile's sprite to default sprite and return sprite value.
+        """Change tile to hidden tile.
 
         Returns:
-            value: Sprite value
+            value: Tile's value
         """
         self.style = "tile2.png"
         self._set_image(self.style)

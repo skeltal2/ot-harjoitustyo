@@ -6,14 +6,14 @@ class HighScores:
     """Create window to display high scores
 
     Attributes:
+        database: Database where scores and names are stored
+        tk_root: Tkinter window root
         menu: MainMenu object to display when this window is destroyed
     """
     def __init__(self, menu):
         """Initialize high score window
 
         Args:
-            db: Database where scores and names are stored
-            tk_root: Window tkinter root
             menu: MainMenu object to display when this window is destroyed
         """
         self.database = sqlite3.connect("src/database/scores.db")

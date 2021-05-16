@@ -5,8 +5,8 @@ class FieldGenerator:
     """Class used to generate fields.
 
     Attributes:
-        x: Horizontal tiles.
-        y: Vertical tiles.
+        field_x: Horizontal tiles.
+        field_y: Vertical tiles.
         mines: Amount of mines.
         first_click: Cordinates of first click
     """
@@ -14,10 +14,10 @@ class FieldGenerator:
         """Initialize field generator.
 
         Args:
-            field_x: Horizontal tiles.
-            field_y: Vertical tile.
+            x: Horizontal tiles.
+            y: Vertical tiles.
             mines: Amount of mines.
-            first_clikc: Cordinates of first click
+            first_click: Cordinates of first click
         """
         self.field_x = x
         self.field_y = y
@@ -25,7 +25,7 @@ class FieldGenerator:
         self.first_click = first_click
 
     def generate(self):
-        """Returns a field.
+        """Generate a field.
 
         Returns:
             X by Y matrix with mines based on initialized values.
@@ -49,7 +49,7 @@ class FieldGenerator:
             mine_checks.append((x_check, y_check))
 
         # Create x * y matrix
-        matrix = self._create_matrix(self.field_x, self.field_y)
+        matrix = self.create_matrix(self.field_x, self.field_y)
 
         # Add possible mine cordinates to free_cords
         for fc_y in range(self.field_y):
@@ -85,7 +85,7 @@ class FieldGenerator:
                 matrix[field_y][field_x] = tile_value
         return matrix
 
-    def _create_matrix(self, horizontal: int, vertical: int):
+    def create_matrix(self, horizontal: int, vertical: int):
         """Create empty X by Y matrix.
 
         Args:

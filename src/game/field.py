@@ -5,14 +5,15 @@ class Field:
     """Object to contain tile objects.
 
     Attributes:
-        field_map: Matrix with tile locations and styles.
         tile_size: Lenght of tile side in pixels.
+        tiles: Sprite group of tiles.
     """
-    def __init__(self, field_map, tile_size):
-        """Initialize Field object.
+    def __init__(self, field_map: list, tile_size: int):
+        """Initialize Field object
 
         Args:
-            tiles: Sprite Group of tiles
+            field_map: Matrix with tile locations and styles.
+            tile_size: Lenght of tile side in pixels.
         """
         self.tile_size = tile_size
         self.tiles = pygame.sprite.Group()

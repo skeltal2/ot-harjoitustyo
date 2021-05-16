@@ -6,16 +6,16 @@ from ui.high_scores import HighScores
 class MainMenu:
     """Main menu and window for the game.
 
+    Attributes:
+        field_x: Field width in tiles.
+        field_y: Field heigh in tiles.
+        mines: Amount of mines on the field.
+        tile_size: Tile side lenght in pixels.
+        tk_root: Window tkinter root.
     """
     def __init__(self):
         """Initialize main menu.
 
-        Args:
-            field_x: Field width in tiles.
-            field_y: Field heigh in tiles.
-            mines: Amount of mines on the field.
-            tile_size: Tile side lenght in pixels.
-            tk_root: Window tkinter root.
         """
         self.field_x = 16
         self.field_y = 16
@@ -30,19 +30,13 @@ class MainMenu:
         screen_y = (self.tk_root.winfo_screenheight()/2) - (240/2)
         self.tk_root.geometry(f"360x240+{int(screen_x)}+{int(screen_y)}")
 
-        self.menu()
+        self._menu()
         self.tk_root.mainloop()
 
 
-    def menu(self):
-        """Set up buttons for main menu.
-
-        Args:
-            var: Game difficlty.
-            name_var Player name.
-        """
-        self.var = tk.IntVar(self.tk_root, 0)
-        self.name_var = tk.StringVar(self.tk_root)
+    def _menu(self):
+        self.var = tk.IntVar(self.tk_root, 0) # Difficulty
+        self.name_var = tk.StringVar(self.tk_root) # Player name
 
         # Create widgetes
         heading_label = tk.Label(
@@ -83,7 +77,7 @@ class MainMenu:
         scores_button = tk.Button(
             master=self.tk_root,
             text="Tulokset",
-            command=self.show_scores
+            command=self._show_scores
         )
         quit_button = tk.Button(
             master=self.tk_root,
@@ -139,16 +133,13 @@ class MainMenu:
         self.tk_root.destroy()
 
     def start_game(self):
-        """Start game in new window.
+        """Start the game in a new window.
 
         """
         self.tk_root.withdraw()
-        self.make_window()
+        self._make_window()
 
-    def make_window(self):
-        """Create window for a new game.
-
-        """
+    def _make_window(self):
         self._find_difficulty(self.var)
 
         height = self.field_y
@@ -176,17 +167,12 @@ class MainMenu:
         pygame.display.quit()
         self.tk_root.deiconify()
 
-    def show_scores(self):
-        """Open a new window to show high scores.
-
-        """
+    def _show_scores(self):
+        # Open window to show high scores
         self.tk_root.withdraw()
         HighScores(self.tk_root)
 
     def _find_difficulty(self, var):
-        """Set game difficulty for a new game
-
-        """
         if var.get() == 1:
             self.field_x = 9
             self.field_y = 9
