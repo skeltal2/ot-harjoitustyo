@@ -21,4 +21,4 @@ Pelaaja voi myös kaivamisen sijasta asettaa lipun kaivamattomalle neliölle. Jo
 * Poistu pelistä-vaihtoehto sulkee sovelluksen
 
 ### Jatkokehitysideoita ###
-* Pelaaja voi luoda oman vaikeustason asetuksissa
+* Pelaaja voi luoda oman vaikeustason valitsemalla kentän leveyden, korkeuden ja miinojen määrän
