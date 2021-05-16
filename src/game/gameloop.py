@@ -39,7 +39,7 @@ class Gameloop:
         self._game_state = 0 # Game state: -1 Game over, 10 Game won, 0 Game in progress
         self._flagged_mines = 0
         self._flags = mines # Flags player can use
-        self._font = pygame.font.SysFont("Calibri", 32)
+        self._font = pygame.font.SysFont("Arial", 32)
 
         # Database for scores
         self._database = sqlite3.connect("src/database/scores.db")
