@@ -9,5 +9,7 @@
 | 26.4  | 6    | tkinterin avulla luotu käyttöliittymä, jossa voi aloitta uuden pelin ja vaihtaa vaikeustasoa |
 | 27.4  | 4    | korjauksia ja kaavioihin tutustuminen |
 | 3.5   | 3    | docstring tutustuminen ja toteutus |
-| 4.5   | 3    | koodikatselmointi ja uusien testies toteuttamista |
-| Yht   | 38   |
+| 4.5   | 3    | koodikatselmointi ja uusien testien toteuttamista |
+| 15.5  | 9    | ajan ja tietokannan toteuttaminen |
+| 16.5  | 7    | dokumentaation, testien ja sovelluksen viimeistelyä |
+| Yht   | 54   |
