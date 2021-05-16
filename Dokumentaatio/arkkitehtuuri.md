@@ -25,7 +25,7 @@ Jos pelaaja ei anna nimeä, pelin tulosta ei tallenneta.
 Luokkien riippuvuudet toisistaan:
 ![image](https://user-images.githubusercontent.com/77693693/118407818-19883b80-b68b-11eb-9d68-213ec44bb382.png)
 
-## Sekvenssikaavio
+## Toiminnallisuus
 ![image](https://user-images.githubusercontent.com/77693693/116299883-e6970a00-a7a6-11eb-9d39-b6fa6b2408bb.png)
 
 Gameloop luokka kutsuu FieldGenerator luokaa arvoilla (x: 16, y: 16, mines: 40, tile_size: 36, first_click: (0, 0)). Luokan metodi generate() palauttaa 16x16 pelikentän (matriisin), jossa on 40 miinaa, ja yksikään miina ei ole neliön (0, 0) vieressä. Seuraavaksi Gameloop kutsuu Field luokkaa FieldGeneratorin luomalla pelikentällä, joka asettaa oikeat spritet pelikentän osoittamiin paikkoihin.
