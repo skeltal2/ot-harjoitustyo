@@ -4,6 +4,8 @@ Sovellus on klassinen miinaharava-peli. Pelaajan tavoitteena on etsiä kaikki mi
 ## Dokumentaatio ##
 [Vaatimusmäärittely](https://github.com/skeltal2/ot-harjoitustyo/blob/master/Dokumentaatio/vaatimmusmaarittely.md)
 
+[Käyttöohje](https://github.com/skeltal2/ot-harjoitustyo/blob/master/Dokumentaatio/kayttoohje.md)
+
 [Työaikakirjanpito](https://github.com/skeltal2/ot-harjoitustyo/blob/master/Dokumentaatio/tyoaika.md)
 
 [Arkkitehtuurikuvaus](https://github.com/skeltal2/ot-harjoitustyo/blob/master/Dokumentaatio/arkkitehtuuri.md)
