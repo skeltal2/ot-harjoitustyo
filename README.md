@@ -10,6 +10,8 @@ Sovellus on klassinen miinaharava-peli. Pelaajan tavoitteena on etsiä kaikki mi
 
 [Arkkitehtuurikuvaus](https://github.com/skeltal2/ot-harjoitustyo/blob/master/Dokumentaatio/arkkitehtuuri.md)
 
+[Testausdokumentti](https://github.com/skeltal2/ot-harjoitustyo/blob/master/Dokumentaatio/testaus.md)
+
 ## Asennus ##
 ```bash
 poetry install
