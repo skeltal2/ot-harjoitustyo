@@ -1,5 +1,16 @@
 # Käyttöohje
 
+## Asentaminen
+Kun peli ladataan ensimmäisen kerran, se asennetaan suorittamalla:
+```bash
+poetry install
+```
+
+Tämän jälkeen peli käynnistetään suorittamalla:
+```bash
+poetry run invoke start
+```
+
 ## Päävalikko
 ![image](https://user-images.githubusercontent.com/77693693/118402399-775c5980-b672-11eb-8f32-1926d46d8d35.png)
 
