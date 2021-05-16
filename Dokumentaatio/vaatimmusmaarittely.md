@@ -4,26 +4,21 @@ Sovellus on miinaharava-peli. Pelissä on pelikenttä, joka koostuu samannäköi
 
 Pelaaja voi myös kaivamisen sijasta asettaa lipun kaivamattomalle neliölle. Jos kaikilla neliöillä jotka sisältävät miinan on lippu, pelaaja voittaa pelin.
 
-* 🔴 - ei tehty
-* 🟡 - osittain tehty/tekeminen aloitettu
-* 🟢 - tehty
-
 ### Perusversion toiminnallisuus ###
-* 🟢 Sovellus aukeaa päävalikkoon, jossa on pelaaja voi aloittaa uuden pelin, muuttaa pelin asetuksia, tai poistua pelistä
-* 🟢 Uusi peli-vaihtoehto aloittaa uuden pelin
-  * 🟢 Pelaaja siirtyy toiseen näkymään, jossa on miinaharava-peli
-  * 🟡 Pelilaudan koko ja miinojen määrä riippuu vaikeustasosta
+* Sovellus aukeaa päävalikkoon, jossa on pelaaja voi aloittaa uuden pelin, muuttaa pelin asetuksia, katsoa tuloksia tai poistua pelistä
+* Uusi peli-vaihtoehto aloittaa uuden pelin
+  * Pelaaja siirtyy toiseen näkymään, jossa on miinaharava-peli
+  * Pelilaudan koko ja miinojen määrä riippuu vaikeustasosta
     * Helppo: 9 x 9 ruudukko, 10 miinaa
     * Keskitaso: 16 x 16 ruudukko, 40 miinaa
     * Vaikea: 30 x 16 ruudukko, 99 miinaa
-  * 🟡 Pelilaudan päällä on ajastin ja luku, joka kertoo kuinka monta miinaa kentällä on
-  * 🔴 Kun peli on loppu, pelaaja näkee kuinka paljon aikaa kului ja siirtyy takaisin päävalikkoon
-* 🟡 Asetukset-vaihtoehto siirtää pelaajan näkymään, jossa pelaaja voi muuttaa pelin asetuksia
-  * 🟢 Pelaaja voi vaihtaa pelin vaikeustasoa
-* 🟢 Poistu pelistä-vaihtoehto sulkee sovelluksen
-* 🟢 Pelikenttä luodaan kun pelaaja paljastaa ensimmäisen neliön. Miinat sijoitetaan satunnaisesti kentälle ja jokainen neliö, joka on miinan vieressä muutetaan numeroksi. Ensimmäinen neliö, jonka pelaaja paljastaa on aina tyhjä neliö.
+  * Pelilaudan päällä on ajastin ja luku, joka kertoo kuinka monta miinaa kentällä on
+  * Kun peli on loppu, pelaaja näkee kuinka paljon aikaa kului ja siirtyy takaisin päävalikkoon
+* Pelaaja voi vaihtaa pelin vaikeustasoa
+* Pelikenttä luodaan kun pelaaja paljastaa ensimmäisen neliön. Miinat sijoitetaan satunnaisesti kentälle ja jokainen neliö, joka on miinan vieressä muutetaan numeroksi. Ensimmäinen neliö, jonka pelaaja paljastaa on aina tyhjä neliö.
+* Ennen pelin aloittamista pelaaja voi antaa nimen. Jos pelaaja on antanut nimen ja voittaa pelin, peliin käytetty aika tallennetaan.
+* Tulokset vaihtoehto avaa näkymän, jossa pelaaja voi katsoa tuloksia
+* Poistu pelistä-vaihtoehto sulkee sovelluksen
+
 ### Jatkokehitysideoita ###
-* 🔴 Pelin päättyessä pelaaja voi antaa nimensä jonka jälkeen pelin aika tallennetaan
-* 🔴 Päävalikossa on uusi vaihtoehto, jossa pelaaja voi katsoa eri vaikeustasojen parhaat ajat
-* 🟡 Pelaaja voi luoda oman vaikeustason asetuksissa
-  * 🟡 Pelaaja voi valita kentän x ja y kokoa ja miinojen määrää
+* Pelaaja voi luoda oman vaikeustason asetuksissa
